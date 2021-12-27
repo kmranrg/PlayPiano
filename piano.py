@@ -1,6 +1,22 @@
-from pathlib import Path
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+'''
+        PlayPiano
 
+Made by Kumar Anurag
+BITS Pilani
+
+Instagram, Twitter: kmranrg
+'''
+
+from playsound import playsound 
+from pathlib import Path
+from tkinter import Tk, Canvas, Button, PhotoImage
+
+'''
+Packages to Install:-
+
+1) pip install playsound
+2) pip install PyObjC
+'''
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
@@ -28,6 +44,20 @@ def showCurrentNote(note):
         tag="currentNote"
     )
 
+def playNote(note):
+    if len(note) == 1:
+        showCurrentNote(" "+str(note))
+    elif note == "LC":
+        newNote = "C"
+        showCurrentNote(" "+str(newNote))
+    else:
+        showCurrentNote(str(note))
+    if note[-1] == "#":
+        newNote = note[0]+"S"
+        playsound("notes/"+str(newNote)+".wav")
+    else:
+        playsound("notes/"+str(note)+".wav")
+
 canvas = Canvas(
     window,
     bg = "#FFFFFF",
@@ -53,7 +83,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("C"),
+    command=lambda: playNote("C"),
     relief="flat"
 )
 button_1.place(
@@ -69,7 +99,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("D"),
+    command=lambda: playNote("D"),
     relief="flat"
 )
 button_2.place(
@@ -85,7 +115,7 @@ button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("A"),
+    command=lambda: playNote("A"),
     relief="flat"
 )
 button_3.place(
@@ -101,7 +131,7 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("G"),
+    command=lambda: playNote("G"),
     relief="flat"
 )
 button_4.place(
@@ -117,7 +147,7 @@ button_5 = Button(
     image=button_image_5,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("E"),
+    command=lambda: playNote("E"),
     relief="flat"
 )
 button_5.place(
@@ -133,7 +163,7 @@ button_6 = Button(
     image=button_image_6,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("B"),
+    command=lambda: playNote("B"),
     relief="flat"
 )
 button_6.place(
@@ -149,7 +179,7 @@ button_7 = Button(
     image=button_image_7,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("F"),
+    command=lambda: playNote("F"),
     relief="flat"
 )
 button_7.place(
@@ -165,7 +195,7 @@ button_8 = Button(
     image=button_image_8,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("C"),
+    command=lambda: playNote("LC"),
     relief="flat"
 )
 button_8.place(
@@ -181,7 +211,7 @@ button_9 = Button(
     image=button_image_9,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("C#"),
+    command=lambda: playNote("C#"),
     relief="flat"
 )
 button_9.place(
@@ -197,7 +227,7 @@ button_10 = Button(
     image=button_image_10,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("D#"),
+    command=lambda: playNote("D#"),
     relief="flat"
 )
 button_10.place(
@@ -213,7 +243,7 @@ button_11 = Button(
     image=button_image_11,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("F#"),
+    command=lambda: playNote("F#"),
     relief="flat"
 )
 button_11.place(
@@ -229,7 +259,7 @@ button_12 = Button(
     image=button_image_12,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("G#"),
+    command=lambda: playNote("G#"),
     relief="flat"
 )
 button_12.place(
@@ -245,7 +275,7 @@ button_13 = Button(
     image=button_image_13,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: showCurrentNote("A#"),
+    command=lambda: playNote("A#"),
     relief="flat"
 )
 button_13.place(
