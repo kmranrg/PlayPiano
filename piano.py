@@ -1,10 +1,12 @@
 '''
-        PlayPiano
-
+--------------------------------
+            PlayPiano
+--------------------------------
 Made by Kumar Anurag
 BITS Pilani
-
+--------------------------------
 Instagram, Twitter: kmranrg
+--------------------------------
 '''
 
 from playsound import playsound 
@@ -25,14 +27,17 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-
 window = Tk()
 window.title("PlayPiano")
 window.geometry("1280x720")
 window.configure(bg = "#FFFFFF")
 
-# showing current note
-def showCurrentNote(note):
+# setting the app logo
+icon = PhotoImage(file="appLogo.png")
+window.iconphoto(False, icon)
+
+# showing played note
+def showPlayedNote(note):
     canvas.create_text(
         canvas.delete("currentNote"),
         603.0,
@@ -44,20 +49,22 @@ def showCurrentNote(note):
         tag="currentNote"
     )
 
+# playing the note
 def playNote(note):
     if len(note) == 1:
-        showCurrentNote(" "+str(note))
+        showPlayedNote(" "+str(note))
     elif note == "LC":
         newNote = "C"
-        showCurrentNote(" "+str(newNote))
+        showPlayedNote(" "+str(newNote))
     else:
-        showCurrentNote(str(note))
+        showPlayedNote(str(note))
     if note[-1] == "#":
         newNote = note[0]+"S"
         playsound("notes/"+str(newNote)+".wav")
     else:
         playsound("notes/"+str(note)+".wav")
 
+# creating the project canvas
 canvas = Canvas(
     window,
     bg = "#FFFFFF",
@@ -68,6 +75,7 @@ canvas = Canvas(
     relief = "ridge"
 )
 
+# setting up the canvas
 canvas.place(x = 0, y = 0)
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
@@ -77,6 +85,7 @@ image_1 = canvas.create_image(
     image=image_image_1
 )
 
+# button C
 button_image_1 = PhotoImage(
     file=relative_to_assets("button_1.png"))
 button_1 = Button(
@@ -93,6 +102,7 @@ button_1.place(
     height=625.0
 )
 
+# button D
 button_image_2 = PhotoImage(
     file=relative_to_assets("button_2.png"))
 button_2 = Button(
@@ -109,6 +119,7 @@ button_2.place(
     height=625.0
 )
 
+# button A
 button_image_3 = PhotoImage(
     file=relative_to_assets("button_3.png"))
 button_3 = Button(
@@ -125,6 +136,7 @@ button_3.place(
     height=625.0
 )
 
+# button G
 button_image_4 = PhotoImage(
     file=relative_to_assets("button_4.png"))
 button_4 = Button(
@@ -141,6 +153,7 @@ button_4.place(
     height=625.0
 )
 
+# button E
 button_image_5 = PhotoImage(
     file=relative_to_assets("button_5.png"))
 button_5 = Button(
@@ -157,6 +170,7 @@ button_5.place(
     height=625.0
 )
 
+# button B
 button_image_6 = PhotoImage(
     file=relative_to_assets("button_6.png"))
 button_6 = Button(
@@ -173,6 +187,7 @@ button_6.place(
     height=625.0
 )
 
+# button F
 button_image_7 = PhotoImage(
     file=relative_to_assets("button_7.png"))
 button_7 = Button(
@@ -189,6 +204,7 @@ button_7.place(
     height=625.0
 )
 
+# button LC
 button_image_8 = PhotoImage(
     file=relative_to_assets("button_8.png"))
 button_8 = Button(
@@ -205,6 +221,7 @@ button_8.place(
     height=625.0
 )
 
+# button C#
 button_image_9 = PhotoImage(
     file=relative_to_assets("button_9.png"))
 button_9 = Button(
@@ -221,6 +238,7 @@ button_9.place(
     height=449.0
 )
 
+# button D#
 button_image_10 = PhotoImage(
     file=relative_to_assets("button_10.png"))
 button_10 = Button(
@@ -237,6 +255,7 @@ button_10.place(
     height=449.0
 )
 
+# button F#
 button_image_11 = PhotoImage(
     file=relative_to_assets("button_11.png"))
 button_11 = Button(
@@ -253,6 +272,7 @@ button_11.place(
     height=449.0
 )
 
+# button G#
 button_image_12 = PhotoImage(
     file=relative_to_assets("button_12.png"))
 button_12 = Button(
@@ -269,6 +289,7 @@ button_12.place(
     height=449.0
 )
 
+# button A#
 button_image_13 = PhotoImage(
     file=relative_to_assets("button_13.png"))
 button_13 = Button(
@@ -285,6 +306,7 @@ button_13.place(
     height=449.0
 )
 
+# box for showing the played note
 entry_image_1 = PhotoImage(
     file=relative_to_assets("entry_1.png"))
 entry_bg_1 = canvas.create_image(
@@ -293,6 +315,7 @@ entry_bg_1 = canvas.create_image(
     image=entry_image_1
 )
 
+# app name
 canvas.create_text(
     48.0,
     19.0,
@@ -302,6 +325,7 @@ canvas.create_text(
     font=("PatuaOne Regular", 50 * -1)
 )
 
+# developer details
 canvas.create_text(
     1025.0,
     39.0,
@@ -310,5 +334,7 @@ canvas.create_text(
     fill="#FFFFFF",
     font=("PatuaOne Regular", 30 * -1)
 )
+
+# making the window size fixed
 window.resizable(False, False)
 window.mainloop()
