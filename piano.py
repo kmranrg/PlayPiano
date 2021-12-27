@@ -1,7 +1,4 @@
 from pathlib import Path
-
-# from tkinter import *
-# Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
@@ -14,10 +11,22 @@ def relative_to_assets(path: str) -> Path:
 
 
 window = Tk()
-
+window.title("PlayPiano")
 window.geometry("1280x720")
 window.configure(bg = "#FFFFFF")
 
+# showing current note
+def showCurrentNote(note):
+    canvas.create_text(
+        canvas.delete("currentNote"),
+        603.0,
+        15.0,
+        anchor="nw",
+        text=str(note),
+        fill="#58270B",
+        font=("Roboto Bold", 60 * -1),
+        tag="currentNote"
+    )
 
 canvas = Canvas(
     window,
@@ -44,7 +53,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=lambda: showCurrentNote("C"),
     relief="flat"
 )
 button_1.place(
@@ -60,14 +69,14 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=lambda: showCurrentNote("D"),
     relief="flat"
 )
 button_2.place(
-    x=102.0,
+    x=160.0,
     y=95.0,
-    width=126.0,
-    height=449.0
+    width=165.47296142578125,
+    height=625.0
 )
 
 button_image_3 = PhotoImage(
@@ -76,14 +85,14 @@ button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
+    command=lambda: showCurrentNote("A"),
     relief="flat"
 )
 button_3.place(
-    x=262.0,
+    x=795.0,
     y=95.0,
-    width=126.0,
-    height=449.0
+    width=165.47296142578125,
+    height=625.0
 )
 
 button_image_4 = PhotoImage(
@@ -92,14 +101,14 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
+    command=lambda: showCurrentNote("G"),
     relief="flat"
 )
 button_4.place(
-    x=579.0,
+    x=635.0,
     y=95.0,
-    width=126.0,
-    height=449.0
+    width=165.47296142578125,
+    height=625.0
 )
 
 button_image_5 = PhotoImage(
@@ -108,14 +117,14 @@ button_5 = Button(
     image=button_image_5,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_5 clicked"),
+    command=lambda: showCurrentNote("E"),
     relief="flat"
 )
 button_5.place(
-    x=739.0,
+    x=318.0,
     y=95.0,
-    width=126.0,
-    height=449.0
+    width=165.47296142578125,
+    height=625.0
 )
 
 button_image_6 = PhotoImage(
@@ -124,14 +133,14 @@ button_6 = Button(
     image=button_image_6,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_6 clicked"),
+    command=lambda: showCurrentNote("B"),
     relief="flat"
 )
 button_6.place(
-    x=899.0,
+    x=954.0,
     y=95.0,
-    width=126.0,
-    height=449.0
+    width=165.472900390625,
+    height=625.0
 )
 
 button_image_7 = PhotoImage(
@@ -140,13 +149,13 @@ button_7 = Button(
     image=button_image_7,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_7 clicked"),
+    command=lambda: showCurrentNote("F"),
     relief="flat"
 )
 button_7.place(
-    x=160.0,
+    x=477.0,
     y=95.0,
-    width=165.47296142578125,
+    width=165.469970703125,
     height=625.0
 )
 
@@ -156,13 +165,13 @@ button_8 = Button(
     image=button_image_8,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_8 clicked"),
+    command=lambda: showCurrentNote("C"),
     relief="flat"
 )
 button_8.place(
-    x=795.0,
+    x=1114.0,
     y=95.0,
-    width=165.47296142578125,
+    width=165.472900390625,
     height=625.0
 )
 
@@ -172,14 +181,14 @@ button_9 = Button(
     image=button_image_9,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_9 clicked"),
+    command=lambda: showCurrentNote("C#"),
     relief="flat"
 )
 button_9.place(
-    x=635.0,
+    x=99.0,
     y=95.0,
-    width=165.47296142578125,
-    height=625.0
+    width=126.0,
+    height=449.0
 )
 
 button_image_10 = PhotoImage(
@@ -188,14 +197,14 @@ button_10 = Button(
     image=button_image_10,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_10 clicked"),
+    command=lambda: showCurrentNote("D#"),
     relief="flat"
 )
 button_10.place(
-    x=318.0,
+    x=258.0,
     y=95.0,
-    width=165.47296142578125,
-    height=625.0
+    width=126.0,
+    height=449.0
 )
 
 button_image_11 = PhotoImage(
@@ -204,14 +213,14 @@ button_11 = Button(
     image=button_image_11,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_11 clicked"),
+    command=lambda: showCurrentNote("F#"),
     relief="flat"
 )
 button_11.place(
-    x=954.0,
+    x=575.0,
     y=95.0,
-    width=165.472900390625,
-    height=625.0
+    width=126.0,
+    height=449.0
 )
 
 button_image_12 = PhotoImage(
@@ -220,14 +229,14 @@ button_12 = Button(
     image=button_image_12,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_12 clicked"),
+    command=lambda: showCurrentNote("G#"),
     relief="flat"
 )
 button_12.place(
-    x=477.0,
+    x=733.0,
     y=95.0,
-    width=165.318603515625,
-    height=625.0
+    width=126.0,
+    height=449.0
 )
 
 button_image_13 = PhotoImage(
@@ -236,14 +245,14 @@ button_13 = Button(
     image=button_image_13,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_13 clicked"),
+    command=lambda: showCurrentNote("A#"),
     relief="flat"
 )
 button_13.place(
-    x=1114.0,
+    x=893.0,
     y=95.0,
-    width=165.472900390625,
-    height=625.0
+    width=126.0,
+    height=449.0
 )
 
 entry_image_1 = PhotoImage(
@@ -252,26 +261,6 @@ entry_bg_1 = canvas.create_image(
     641.0,
     49.5,
     image=entry_image_1
-)
-entry_1 = Text(
-    bd=0,
-    bg="#F6DDD1",
-    highlightthickness=0
-)
-entry_1.place(
-    x=606.0,
-    y=15.0,
-    width=70.0,
-    height=67.0
-)
-
-canvas.create_text(
-    603.0,
-    15.0,
-    anchor="nw",
-    text="C#",
-    fill="#58270B",
-    font=("Roboto Bold", 60 * -1)
 )
 
 canvas.create_text(
